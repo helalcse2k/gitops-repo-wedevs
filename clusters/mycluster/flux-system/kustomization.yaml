@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-patchesStrategicMerge:
+patches:
 - flux-kustomization-patch.yaml
