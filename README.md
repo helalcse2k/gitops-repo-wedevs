@@ -1,5 +1,5 @@
 # gitops-repo-wedevs
-######k3s + FluxCD + SOPS(age) + MetalLB + ingress-nginx + WordPress
+# k3s + FluxCD + SOPS(age) + MetalLB + ingress-nginx + WordPress
 
 
 Goal (Task 1):
