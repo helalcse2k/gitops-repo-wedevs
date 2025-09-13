@@ -4,4 +4,7 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 patches:
-- flux-kustomization-patch.yaml
+- path: decryption-patch.yaml
+  target:
+    kind: Kustomization
+    name: flux-system
