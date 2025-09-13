@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: wordpress
+  namespace: wordpress
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: wordpress
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  install:
+    createNamespace: true
+  values:
+    mariadb:
+      enabled: false
+    externalDatabase:
+      host: mysql-primary.wordpress.svc.cluster.local
+      port: 3306
+      user: wpuser
+      password: ""
+      database: bitnami_wordpress
+    ingress:
+      enabled: true
+      hostname: app.local
+      pathType: ImplementationSpecific
+

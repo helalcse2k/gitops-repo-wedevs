@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-snippets
+  namespace: ingress-nginx
+data:
+  redirect-server-snippet: |
+    error_page 404 = @to_google;
+    location @to_google {
+      return 302 https://www.google.com;
+    }
+

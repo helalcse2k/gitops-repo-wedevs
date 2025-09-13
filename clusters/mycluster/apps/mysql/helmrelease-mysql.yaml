@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mysql
+  namespace: wordpress
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: mysql
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  install:
+    createNamespace: true
+  values:
+    auth:
+      existingSecret: mysql-credentials
+    primary:
+      service:
+        type: ClusterIP
+
